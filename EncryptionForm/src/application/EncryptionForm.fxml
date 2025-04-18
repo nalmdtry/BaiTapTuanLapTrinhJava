@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/17"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="application.EncryptionController"
+          alignment="CENTER" hgap="10.0" vgap="10.0">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+
+    <Label text="Chuỗi cần mã hóa:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="inputText" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="300.0"/>
+
+    <Label text="Thuật toán:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+<ChoiceBox fx:id="algorithmChoice" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="300.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <fx:element value="AES"/>
+                <fx:element value="RSA"/>
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+    <Button fx:id="encryptButton" text="Mã hóa" GridPane.columnIndex="0" GridPane.rowIndex="2"
+            onAction="#handleEncrypt"/>
+    <Button fx:id="decryptButton" text="Giải mã" GridPane.columnIndex="1" GridPane.rowIndex="2"
+            onAction="#handleDecrypt"/>
+
+    <Label text="Kết quả:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextArea fx:id="outputText" GridPane.columnIndex="1" GridPane.rowIndex="3" prefHeight="150.0"
+              prefWidth="300.0" editable="false"/>
+
+    <Label fx:id="keyLabel" text="Khóa:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextArea fx:id="keyText" GridPane.columnIndex="1" GridPane.rowIndex="4" prefHeight="100.0"
+              prefWidth="300.0" editable="false"/>
+</GridPane>
